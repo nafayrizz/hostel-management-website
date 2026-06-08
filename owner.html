@@ -1,0 +1,585 @@
+<!--
+  AICT Semester Project
+  Abdul Nafay | 2023mc52
+  Mechatronics Department
+-->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel – Zubair Hall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <div class="brand-icon">Z</div>
+      <span>Zubair Hall</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#" class="active">Admin Panel</a></li>
+      <li>
+        <a href="#" class="btn-nav-login" onclick="doLogout();return false;">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== DASHBOARD LAYOUT ========== -->
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar">
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background:var(--gold-light); color:var(--navy);">TM</div>
+      <div class="user-name">Mr. Tariq Mahmood</div>
+      <div class="user-role">Warden · Admin</div>
+    </div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#attendance" class="active">
+          <span class="nav-icon">📊</span> Mess Attendance
+        </a>
+      </li>
+      <li>
+        <a href="#rent-records">
+          <span class="nav-icon">💰</span> Rent Records
+        </a>
+      </li>
+      <li>
+        <a href="#floor-map">
+          <span class="nav-icon">🗺️</span> Floor Map
+        </a>
+      </li>
+      <li>
+        <a href="#residents-list">
+          <span class="nav-icon">👥</span> All Residents
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          <span class="nav-icon">🏠</span> Home Page
+        </a>
+      </li>
+      <li>
+        <a href="#" id="logout-sb" onclick="doLogout();return false;">
+          <span class="nav-icon">🚪</span> Logout
+        </a>
+      </li>
+    </ul>
+
+    <!-- Admin Quick Stats -->
+    <div style="padding:20px 16px; border-top:1px solid rgba(255,255,255,0.08); margin-top:16px;">
+      <p style="font-size:0.72rem; color:var(--gold); font-weight:600; letter-spacing:0.10em; text-transform:uppercase; margin-bottom:12px;">Overview</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:10px 12px;">
+          <div style="font-size:0.72rem; color:rgba(248,247,243,0.50); margin-bottom:3px;">Total Rooms</div>
+          <div style="font-size:0.9rem; color:var(--white); font-weight:600;">32 Rooms</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:10px 12px;">
+          <div style="font-size:0.72rem; color:rgba(248,247,243,0.50); margin-bottom:3px;">Occupied</div>
+          <div style="font-size:0.9rem; color:var(--gold-light); font-weight:600;">29 Rooms</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:10px 12px;">
+          <div style="font-size:0.72rem; color:rgba(248,247,243,0.50); margin-bottom:3px;">Pending Rent</div>
+          <div style="font-size:0.9rem; color:#e5383b; font-weight:600;">4 Residents</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div>
+        <h2 style="color:var(--navy); font-size:1.5rem; margin-bottom:4px;">Owner / Admin Panel</h2>
+        <p style="color:var(--text-muted); font-size:0.88rem;">Zubair Hall Management · June 2026</p>
+      </div>
+      <button onclick="window.print()" class="btn btn-outline" style="font-size:0.82rem; padding:8px 16px;">🖨 Print Report</button>
+    </div>
+
+    <!-- ===== MESS ATTENDANCE ===== -->
+    <div class="dash-section" id="attendance">
+      <div class="dash-section-title">
+        <span class="section-icon">📊</span>
+        <h3>Total Mess Attendance Sheet</h3>
+      </div>
+
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('att-may')">May 2026</button>
+        <button class="tab-btn" onclick="showTab('att-april')">April 2026</button>
+        <button class="tab-btn" onclick="showTab('att-march')">March 2026</button>
+      </div>
+
+      <div id="tab-att-may" class="tab-content active">
+        <div class="month-selector">
+          <span class="month-label-tag">📅 May 2026 Attendance</span>
+          <span class="badge badge-navy">Total Residents: 29</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Day</th>
+                <th>Breakfast Count</th>
+                <th>Dinner Count</th>
+                <th>Total Meals</th>
+                <th>Revenue (PKR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>01 May</td><td>Thursday</td><td>24</td><td>27</td><td>51</td><td>3,825</td></tr>
+              <tr><td>02 May</td><td>Friday</td><td>20</td><td>25</td><td>45</td><td>3,375</td></tr>
+              <tr><td>03 May</td><td>Saturday</td><td>18</td><td>22</td><td>40</td><td>3,000</td></tr>
+              <tr><td>04 May</td><td>Sunday</td><td>22</td><td>26</td><td>48</td><td>3,600</td></tr>
+              <tr><td>05 May</td><td>Monday</td><td>26</td><td>29</td><td>55</td><td>4,125</td></tr>
+              <tr><td>06 May</td><td>Tuesday</td><td>25</td><td>28</td><td>53</td><td>3,975</td></tr>
+              <tr><td>07 May</td><td>Wednesday</td><td>27</td><td>29</td><td>56</td><td>4,200</td></tr>
+              <tr><td>08 May</td><td>Thursday</td><td>24</td><td>26</td><td>50</td><td>3,750</td></tr>
+              <tr><td>09 May</td><td>Friday</td><td>19</td><td>24</td><td>43</td><td>3,225</td></tr>
+              <tr><td>10 May</td><td>Saturday</td><td>17</td><td>21</td><td>38</td><td>2,850</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"><strong>Partial Total (10 days)</strong></td>
+                <td><strong>222</strong></td>
+                <td><strong>257</strong></td>
+                <td><strong>479</strong></td>
+                <td><strong>PKR 35,925</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab-att-april" class="tab-content">
+        <div class="month-selector">
+          <span class="month-label-tag">📅 April 2026 Attendance</span>
+          <span class="badge badge-green">Monthly Total: 1,360 meals</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Day</th>
+                <th>Breakfast Count</th>
+                <th>Dinner Count</th>
+                <th>Total Meals</th>
+                <th>Revenue (PKR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>01 Apr</td><td>Tuesday</td><td>24</td><td>30</td><td>54</td><td>4,050</td></tr>
+              <tr><td>02 Apr</td><td>Wednesday</td><td>20</td><td>28</td><td>48</td><td>3,600</td></tr>
+              <tr><td>03 Apr</td><td>Thursday</td><td>26</td><td>29</td><td>55</td><td>4,125</td></tr>
+              <tr><td>04 Apr</td><td>Friday</td><td>18</td><td>22</td><td>40</td><td>3,000</td></tr>
+              <tr><td>05 Apr</td><td>Saturday</td><td>15</td><td>20</td><td>35</td><td>2,625</td></tr>
+              <tr><td>06 Apr</td><td>Sunday</td><td>23</td><td>27</td><td>50</td><td>3,750</td></tr>
+              <tr><td>07 Apr</td><td>Monday</td><td>27</td><td>29</td><td>56</td><td>4,200</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"><strong>April Monthly Total</strong></td>
+                <td><strong>620</strong></td>
+                <td><strong>740</strong></td>
+                <td><strong>1,360</strong></td>
+                <td><strong>PKR 102,000</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab-att-march" class="tab-content">
+        <div class="month-selector">
+          <span class="month-label-tag">📅 March 2026 Attendance</span>
+          <span class="badge badge-green">Monthly Total: 1,420 meals</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Day</th>
+                <th>Breakfast Count</th>
+                <th>Dinner Count</th>
+                <th>Total Meals</th>
+                <th>Revenue (PKR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>01 Mar</td><td>Sunday</td><td>22</td><td>26</td><td>48</td><td>3,600</td></tr>
+              <tr><td>02 Mar</td><td>Monday</td><td>27</td><td>29</td><td>56</td><td>4,200</td></tr>
+              <tr><td>03 Mar</td><td>Tuesday</td><td>25</td><td>28</td><td>53</td><td>3,975</td></tr>
+              <tr><td>04 Mar</td><td>Wednesday</td><td>24</td><td>27</td><td>51</td><td>3,825</td></tr>
+              <tr><td>05 Mar</td><td>Thursday</td><td>26</td><td>29</td><td>55</td><td>4,125</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"><strong>March Monthly Total</strong></td>
+                <td><strong>660</strong></td>
+                <td><strong>760</strong></td>
+                <td><strong>1,420</strong></td>
+                <td><strong>PKR 106,500</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ROOM RENT RECORDS ===== -->
+    <div class="dash-section" id="rent-records">
+      <div class="dash-section-title">
+        <span class="section-icon">💰</span>
+        <h3>Room Fee &amp; Rent Records — All Rooms</h3>
+        <span class="badge badge-red" style="margin-left:auto;">4 Pending</span>
+      </div>
+
+      <div class="month-selector">
+        <span class="month-label-tag">📅 As of June 2026</span>
+        <span class="badge badge-navy">28 Rooms Active</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Floor</th>
+              <th>Resident Name</th>
+              <th>Reg. No.</th>
+              <th>Monthly Rent</th>
+              <th>Last Paid</th>
+              <th>Due Since</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>101</strong></td><td>Ground</td><td>Ahmad Ali</td><td>2023-EE-11</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>102</strong></td><td>Ground</td><td>Bilal Hassan</td><td>2022-CS-08</td><td>PKR 8,000</td><td>Apr 2026</td><td>May 2026</td><td><span class="badge badge-red">Pending</span></td></tr>
+            <tr><td><strong>103</strong></td><td>Ground</td><td>Abdul Nafay</td><td>2023-MC-52</td><td>PKR 8,000</td><td>Mar 2026</td><td>Apr 2026</td><td><span class="badge badge-red">Pending</span></td></tr>
+            <tr><td><strong>104</strong></td><td>Ground</td><td>Saad Malik</td><td>2024-ME-19</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>105</strong></td><td>Ground</td><td>—</td><td>—</td><td>PKR 8,000</td><td>—</td><td>—</td><td><span class="badge badge-navy">Vacant</span></td></tr>
+            <tr><td><strong>106</strong></td><td>Ground</td><td>Umar Farooq</td><td>2023-CE-33</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>107</strong></td><td>Ground</td><td>Hamza Raza</td><td>2022-EE-47</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>108</strong></td><td>Ground</td><td>Zain Ahmed</td><td>2024-CS-05</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>201</strong></td><td>1st</td><td>Faisal Khan</td><td>2023-CE-12</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>202</strong></td><td>1st</td><td>Anas Tariq</td><td>2022-ME-29</td><td>PKR 8,000</td><td>Apr 2026</td><td>May 2026</td><td><span class="badge badge-red">Pending</span></td></tr>
+            <tr><td><strong>203</strong></td><td>1st</td><td>Kamran Iqbal</td><td>2024-EE-03</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>204</strong></td><td>1st</td><td>—</td><td>—</td><td>PKR 8,000</td><td>—</td><td>—</td><td><span class="badge badge-navy">Vacant</span></td></tr>
+            <tr><td><strong>205</strong></td><td>1st</td><td>Talha Sohail</td><td>2023-CS-41</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>206</strong></td><td>1st</td><td>Yasir Latif</td><td>2022-CE-17</td><td>PKR 8,000</td><td>Mar 2026</td><td>Apr 2026</td><td><span class="badge badge-red">Pending</span></td></tr>
+            <tr><td><strong>207</strong></td><td>1st</td><td>Nabeel Arif</td><td>2024-MC-09</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+            <tr><td><strong>208</strong></td><td>1st</td><td>Rohail Hussain</td><td>2023-EE-55</td><td>PKR 8,000</td><td>May 2026</td><td>—</td><td><span class="badge badge-green">Clear</span></td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4"><strong>Summary</strong></td>
+              <td><strong>Total Monthly: PKR 2,32,000</strong></td>
+              <td colspan="2"><strong>Pending: 4 rooms</strong></td>
+              <td><strong>3 Vacant</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== FLOOR MAP ===== -->
+    <div class="dash-section" id="floor-map">
+      <div class="dash-section-title">
+        <span class="section-icon">🗺️</span>
+        <h3>Hostel Floor Map – Room Occupancy</h3>
+      </div>
+
+      <!-- Ground Floor -->
+      <div class="floor-map" style="margin-bottom:20px;">
+        <div class="floor-label">Ground Floor (G)</div>
+        <div class="rooms-row">
+          <div class="room-box occupied">
+            <div class="room-num">101</div>
+            <div class="room-name">Ahmad Ali</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">102</div>
+            <div class="room-name">Bilal Hassan</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">103</div>
+            <div class="room-name">Abdul Nafay</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">104</div>
+            <div class="room-name">Saad Malik</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+        </div>
+        <div class="floor-corridor">— Corridor / Hallway —</div>
+        <div class="rooms-row">
+          <div class="room-box vacant">
+            <div class="room-num">105</div>
+            <div class="room-name">Available</div>
+            <span class="room-status badge badge-red">Vacant</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">106</div>
+            <div class="room-name">Umar Farooq</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">107</div>
+            <div class="room-name">Hamza Raza</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">108</div>
+            <div class="room-name">Zain Ahmed</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item"><div class="legend-dot occ"></div> Occupied</div>
+          <div class="legend-item"><div class="legend-dot vac"></div> Vacant</div>
+        </div>
+      </div>
+
+      <!-- First Floor -->
+      <div class="floor-map" style="margin-bottom:20px;">
+        <div class="floor-label">First Floor (1st)</div>
+        <div class="rooms-row">
+          <div class="room-box occupied">
+            <div class="room-num">201</div>
+            <div class="room-name">Faisal Khan</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">202</div>
+            <div class="room-name">Anas Tariq</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">203</div>
+            <div class="room-name">Kamran Iqbal</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box vacant">
+            <div class="room-num">204</div>
+            <div class="room-name">Available</div>
+            <span class="room-status badge badge-red">Vacant</span>
+          </div>
+        </div>
+        <div class="floor-corridor">— Corridor / Hallway —</div>
+        <div class="rooms-row">
+          <div class="room-box occupied">
+            <div class="room-num">205</div>
+            <div class="room-name">Talha Sohail</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">206</div>
+            <div class="room-name">Yasir Latif</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">207</div>
+            <div class="room-name">Nabeel Arif</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">208</div>
+            <div class="room-name">Rohail Hussain</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item"><div class="legend-dot occ"></div> Occupied</div>
+          <div class="legend-item"><div class="legend-dot vac"></div> Vacant</div>
+        </div>
+      </div>
+
+      <!-- Second Floor -->
+      <div class="floor-map">
+        <div class="floor-label">Second Floor (2nd)</div>
+        <div class="rooms-row">
+          <div class="room-box occupied">
+            <div class="room-num">301</div>
+            <div class="room-name">Ibrahim Shah</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">302</div>
+            <div class="room-name">Hassan Zaidi</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box vacant">
+            <div class="room-num">303</div>
+            <div class="room-name">Available</div>
+            <span class="room-status badge badge-red">Vacant</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">304</div>
+            <div class="room-name">Ali Raza</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+        </div>
+        <div class="floor-corridor">— Corridor / Hallway —</div>
+        <div class="rooms-row">
+          <div class="room-box occupied">
+            <div class="room-num">305</div>
+            <div class="room-name">Daniyal Khan</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">306</div>
+            <div class="room-name">Omar Baig</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">307</div>
+            <div class="room-name">Shahrukh Ali</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+          <div class="room-box occupied">
+            <div class="room-num">308</div>
+            <div class="room-name">Tariq Javed</div>
+            <span class="room-status badge badge-green">Occupied</span>
+          </div>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item"><div class="legend-dot occ"></div> Occupied (29/32 total)</div>
+          <div class="legend-item"><div class="legend-dot vac"></div> Vacant (3/32 total)</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ========== ALL RESIDENTS SECTION (below main layout) ========== -->
+<div style="max-width:1100px;margin:32px auto;padding:0 24px;" id="residents-list">
+  <div class="dash-section">
+    <div class="dash-section-title">
+      <span class="section-icon">👥</span>
+      <h3>All Registered Residents</h3>
+      <span id="res-count-badge" style="margin-left:auto;"></span>
+    </div>
+
+    <div style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <input type="text" id="res-search" oninput="filterResidents()"
+        placeholder="Search by name, reg. no., room, department…"
+        style="flex:1;min-width:200px;padding:9px 14px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;font-family:inherit;outline:none;" />
+      <select id="res-filter-status" onchange="filterResidents()"
+        style="padding:9px 14px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;font-family:inherit;background:var(--white);color:var(--text);outline:none;">
+        <option value="">All Status</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Reg. No.</th>
+            <th>Room</th>
+            <th>Department</th>
+            <th>Monthly Rent</th>
+            <th>Fee Status</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="res-tbody"></tbody>
+      </table>
+    </div>
+    <p id="res-empty" style="text-align:center;color:var(--text-muted);padding:24px;display:none;">No residents match your search.</p>
+  </div>
+</div>
+
+<script src="users_db.js"></script>
+<script>
+  /* ── Auth guard ── */
+  (function() {
+    const s = ZUBAIR_DB.getSession();
+    if (!s || s.role !== 'owner') window.location.href = 'login.html';
+  })();
+
+  function doLogout() {
+    if (confirm('Logout from Admin Panel?')) {
+      ZUBAIR_DB.clearSession();
+      window.location.href = 'login.html';
+    }
+  }
+
+  /* ── Tab helper ── */
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  /* ── Residents table ── */
+  let allResidents = [];
+
+  function renderResidents(list) {
+    const tbody = document.getElementById('res-tbody');
+    const empty = document.getElementById('res-empty');
+    if (!list.length) {
+      tbody.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    tbody.innerHTML = list.map((r, i) => {
+      const pending = r.feeRecords.filter(f => f.status === 'Pending').length;
+      const feeBadge = pending
+        ? `<span class="badge badge-red">${pending} Pending</span>`
+        : r.feeRecords.length === 0
+          ? `<span class="badge badge-navy">No Records</span>`
+          : `<span class="badge badge-green">All Paid</span>`;
+      return `<tr>
+        <td>${i+1}</td>
+        <td><strong>${r.profile.fullName}</strong></td>
+        <td><code style="background:var(--off-white);padding:2px 6px;border-radius:4px;font-size:.8rem;">${r.username}</code></td>
+        <td>${r.profile.room} <span style="color:var(--text-muted);font-size:.8rem;">(${r.profile.floor})</span></td>
+        <td>${r.profile.department}</td>
+        <td>PKR ${r.profile.monthlyRent.toLocaleString()}</td>
+        <td>${feeBadge}</td>
+        <td><span class="badge ${r.profile.status==='Active'?'badge-green':'badge-red'}">${r.profile.status}</span></td>
+      </tr>`;
+    }).join('');
+  }
+
+  function filterResidents() {
+    const q      = document.getElementById('res-search').value.toLowerCase();
+    const status = document.getElementById('res-filter-status').value;
+    const filtered = allResidents.filter(r => {
+      const matchQ = !q || [r.profile.fullName, r.username, r.profile.room, r.profile.department, r.profile.homeCity]
+        .some(v => v.toLowerCase().includes(q));
+      const matchS = !status || r.profile.status === status;
+      return matchQ && matchS;
+    });
+    renderResidents(filtered);
+  }
+
+  // Load residents on page load
+  allResidents = ZUBAIR_DB.getAllResidents();
+  document.getElementById('res-count-badge').innerHTML =
+    `<span class="badge badge-navy">${allResidents.length} Resident${allResidents.length!==1?'s':''} Registered</span>`;
+  renderResidents(allResidents);
+</script>
+
+</body>
+</html>

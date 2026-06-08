@@ -1,0 +1,362 @@
+<!--
+  AICT Semester Project
+  Abdul Nafay | 2023mc52
+  Mechatronics Department
+-->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register – Zubair Hall Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Registration extras ── */
+    .auth-tabs { display:flex; gap:0; margin-bottom:24px; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .auth-tab  { flex:1; padding:11px 0; text-align:center; font-size:0.85rem; font-weight:600;
+                 background:var(--off-white); color:var(--text-muted); cursor:pointer; border:none;
+                 transition:background .2s,color .2s; }
+    .auth-tab.active { background:var(--navy); color:var(--white); }
+    .reg-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+    .reg-grid .form-group { margin-bottom:14px; }
+    .form-group { margin-bottom:16px; }
+    .form-group label { font-size:0.78rem; color:var(--text-muted); letter-spacing:.05em;
+                        text-transform:uppercase; display:block; margin-bottom:6px; font-weight:600; }
+    .form-group input, .form-group select {
+      width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px;
+      font-size:0.9rem; color:var(--text); background:var(--white); outline:none; box-sizing:border-box;
+      transition:border-color .2s; font-family:inherit; }
+    .form-group input:focus, .form-group select:focus { border-color:var(--navy); }
+    .form-hint { font-size:0.75rem; color:var(--text-muted); margin-top:4px; }
+    .panel { display:none; }
+    .panel.active { display:block; }
+    #reg-error, #login-error {
+      display:none; background:rgba(155,34,38,.08); border:1px solid rgba(155,34,38,.20);
+      border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:.85rem; color:var(--red); }
+    #reg-success {
+      display:none; background:rgba(34,139,34,.08); border:1px solid rgba(34,139,34,.25);
+      border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:.85rem; color:#166016; }
+    .section-divider { font-size:.72rem; font-weight:600; color:var(--text-muted);
+      text-transform:uppercase; letter-spacing:.08em; margin:14px 0 10px; border-bottom:1px solid var(--border); padding-bottom:6px; }
+  </style>
+</head>
+<body class="login-page">
+
+<!-- ========== NAVIGATION ========== -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <div class="brand-icon">Z</div>
+      <span>Zubair Hall</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="login.html" class="active btn-nav-login">Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== SPLIT LAYOUT ========== -->
+<div class="login-wrap">
+
+  <!-- Left Panel -->
+  <div class="login-left">
+    <div>
+      <span style="font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;">
+        Zubair Hall Portal
+      </span>
+      <h2>Manage Your<br><span>Hostel Life</span><br>Digitally</h2>
+      <p style="margin-top:16px;margin-bottom:32px;">
+        Access your room records, fee status, mess history, and personal information — all in one secure place. No more paper registers or manual inquiries.
+      </p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> View your monthly rent payment history</li>
+        <li><span class="check">✓</span> Track daily mess meals and payment status</li>
+        <li><span class="check">✓</span> Check your personal profile and room details</li>
+        <li><span class="check">✓</span> Admin: manage all room attendance records</li>
+        <li><span class="check">✓</span> Register a new account instantly</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="login-right">
+    <div class="login-card">
+
+      <!-- Login / Register Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login-btn" onclick="switchAuthTab('login')">Sign In</button>
+        <button class="auth-tab"        id="tab-reg-btn"   onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <!-- ===== LOGIN PANEL ===== -->
+      <div class="panel active" id="panel-login">
+        <p class="login-sub">Select your account type and enter your credentials.</p>
+
+        <div style="margin-bottom:20px;">
+          <label style="font-size:.78rem;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:block;">I am a —</label>
+          <div class="user-type-selector">
+            <div class="user-type-btn selected" id="btn-resident" onclick="selectType('resident')">
+              <span class="type-icon">🎓</span>
+              <div class="type-label">Resident</div>
+              <div class="type-sub">Student living in hostel</div>
+            </div>
+            <div class="user-type-btn" id="btn-owner" onclick="selectType('owner')">
+              <span class="type-icon">🏢</span>
+              <div class="type-label">Owner / Admin</div>
+              <div class="type-sub">Hostel management</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username / Reg. No.</label>
+          <input type="text" id="username" placeholder="e.g. 2023-MC-52" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div style="position:relative;">
+            <input type="password" id="password" placeholder="Enter your password" style="padding-right:44px;" />
+            <button onclick="togglePw('password')" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1rem;color:var(--text-muted);" title="Show/hide">👁</button>
+          </div>
+        </div>
+
+        <div id="login-error">Invalid username or password. Please try again.</div>
+
+        <button class="btn btn-primary" style="width:100%;padding:13px;" onclick="doLogin()">
+          Sign In →
+        </button>
+
+        <p class="login-hint" style="margin-top:16px;">
+          New resident? <a href="#" onclick="switchAuthTab('register');return false;" style="color:var(--gold);font-weight:600;">Create an account</a>
+        </p>
+        <p class="login-hint">
+          Having trouble? Contact the hostel warden at<br>
+          <a href="tel:+924299029201" style="color:var(--gold);font-weight:600;">042-9902-9201</a>
+          or visit Room G-02 (Ground Floor).
+        </p>
+
+        <!-- Demo Credentials -->
+        <div style="margin-top:20px;background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <p style="font-size:.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Demo Credentials</p>
+          <div style="font-size:.82rem;color:var(--text);line-height:2;">
+            <strong>Resident:</strong> <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">2023-MC-52</code> / <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">resident123</code><br>
+            <strong>Resident 2:</strong> <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">2022-EE-14</code> / <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">hassan123</code><br>
+            <strong>Resident 3:</strong> <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">2024-CS-07</code> / <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">fatima2024</code><br>
+            <strong>Admin:</strong> <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">admin</code> / <code style="background:#e9e5da;padding:1px 6px;border-radius:4px;">owner123</code>
+          </div>
+        </div>
+      </div><!-- /panel-login -->
+
+      <!-- ===== REGISTER PANEL ===== -->
+      <div class="panel" id="panel-register">
+        <p class="login-sub">Fill in your details to create a new resident account.</p>
+
+        <div class="section-divider">Account Credentials</div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-username">Reg. No. (username) *</label>
+            <input type="text" id="r-username" placeholder="e.g. 2024-ME-10" />
+          </div>
+          <div class="form-group">
+            <label for="r-email">Email</label>
+            <input type="email" id="r-email" placeholder="you@student.uet.edu.pk" />
+          </div>
+        </div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-password">Password *</label>
+            <div style="position:relative;">
+              <input type="password" id="r-password" placeholder="Min. 6 characters" style="padding-right:36px;" />
+              <button onclick="togglePw('r-password')" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:.9rem;color:var(--text-muted);">👁</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="r-confirm">Confirm Password *</label>
+            <input type="password" id="r-confirm" placeholder="Repeat password" />
+          </div>
+        </div>
+
+        <div class="section-divider">Personal Information</div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-fullname">Full Name *</label>
+            <input type="text" id="r-fullname" placeholder="e.g. Ali Hassan" />
+          </div>
+          <div class="form-group">
+            <label for="r-father">Father's Name</label>
+            <input type="text" id="r-father" placeholder="e.g. Hassan Iqbal" />
+          </div>
+        </div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-cnic">CNIC Number</label>
+            <input type="text" id="r-cnic" placeholder="35201-XXXXXXX-X" />
+          </div>
+          <div class="form-group">
+            <label for="r-phone">Emergency Phone</label>
+            <input type="text" id="r-phone" placeholder="+92 3XX XXXXXXX" />
+          </div>
+        </div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-department">Department *</label>
+            <select id="r-department">
+              <option value="">— Select —</option>
+              <option>CS – UET Lahore</option>
+              <option>MC – UET Lahore</option>
+              <option>EE – UET Lahore</option>
+              <option>ME – UET Lahore</option>
+              <option>CE – UET Lahore</option>
+              <option>CH – UET Lahore</option>
+              <option>PE – UET Lahore</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="r-city">Home City</label>
+            <input type="text" id="r-city" placeholder="e.g. Multan, Punjab" />
+          </div>
+        </div>
+
+        <div class="section-divider">Room Details</div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-room">Room Number</label>
+            <input type="text" id="r-room" placeholder="e.g. 204" />
+          </div>
+          <div class="form-group">
+            <label for="r-floor">Floor</label>
+            <select id="r-floor">
+              <option value="">— Select —</option>
+              <option>Ground Floor</option>
+              <option>1st Floor</option>
+              <option>2nd Floor</option>
+              <option>3rd Floor</option>
+            </select>
+          </div>
+        </div>
+        <div class="reg-grid">
+          <div class="form-group">
+            <label for="r-roomtype">Room Type</label>
+            <select id="r-roomtype">
+              <option value="">— Select —</option>
+              <option>Single Occupancy</option>
+              <option>Double Occupancy</option>
+              <option>Triple Occupancy</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="r-rent">Monthly Rent (PKR)</label>
+            <input type="number" id="r-rent" placeholder="8000" min="1000" />
+          </div>
+        </div>
+
+        <div id="reg-error"></div>
+        <div id="reg-success">✓ Account created! Redirecting to login…</div>
+
+        <button class="btn btn-primary" style="width:100%;padding:13px;" onclick="doRegister()">
+          Create Account →
+        </button>
+        <p class="login-hint" style="margin-top:14px;">
+          Already have an account? <a href="#" onclick="switchAuthTab('login');return false;" style="color:var(--gold);font-weight:600;">Sign in</a>
+        </p>
+      </div><!-- /panel-register -->
+
+    </div>
+  </div>
+</div>
+
+<script src="users_db.js"></script>
+<script>
+  /* ── Tab switch ── */
+  let selectedType = 'resident';
+
+  function switchAuthTab(tab) {
+    document.getElementById('panel-login').classList.toggle('active', tab === 'login');
+    document.getElementById('panel-register').classList.toggle('active', tab === 'register');
+    document.getElementById('tab-login-btn').classList.toggle('active', tab === 'login');
+    document.getElementById('tab-reg-btn').classList.toggle('active', tab === 'register');
+  }
+
+  function selectType(type) {
+    selectedType = type;
+    document.getElementById('btn-resident').classList.toggle('selected', type === 'resident');
+    document.getElementById('btn-owner').classList.toggle('selected', type === 'owner');
+    document.getElementById('login-error').style.display = 'none';
+  }
+
+  function togglePw(id) {
+    const el = document.getElementById(id);
+    el.type = el.type === 'password' ? 'text' : 'password';
+  }
+
+  /* ── Login ── */
+  function doLogin() {
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value.trim();
+    const errBox = document.getElementById('login-error');
+    errBox.style.display = 'none';
+
+    if (!user || !pass) { errBox.textContent = 'Please enter username and password.'; errBox.style.display = 'block'; return; }
+
+    const found = ZUBAIR_DB.authenticate(user, pass, selectedType);
+    if (found) {
+      ZUBAIR_DB.setSession(found);
+      window.location.href = selectedType === 'owner' ? 'owner.html' : 'resident.html';
+    } else {
+      errBox.textContent = 'Invalid username or password. Please try again.';
+      errBox.style.display = 'block';
+      document.getElementById('password').value = '';
+    }
+  }
+
+  /* ── Register ── */
+  function doRegister() {
+    const errBox = document.getElementById('reg-error');
+    const okBox  = document.getElementById('reg-success');
+    errBox.style.display = 'none';
+    okBox.style.display  = 'none';
+
+    const v = {
+      username:    document.getElementById('r-username').value.trim(),
+      password:    document.getElementById('r-password').value,
+      confirm:     document.getElementById('r-confirm').value,
+      fullName:    document.getElementById('r-fullname').value.trim(),
+      fatherName:  document.getElementById('r-father').value.trim(),
+      cnic:        document.getElementById('r-cnic').value.trim(),
+      phone:       document.getElementById('r-phone').value.trim(),
+      email:       document.getElementById('r-email').value.trim(),
+      department:  document.getElementById('r-department').value,
+      homeCity:    document.getElementById('r-city').value.trim(),
+      room:        document.getElementById('r-room').value.trim(),
+      floor:       document.getElementById('r-floor').value,
+      roomType:    document.getElementById('r-roomtype').value,
+      monthlyRent: document.getElementById('r-rent').value
+    };
+
+    if (!v.username)   return showErr('Registration number (username) is required.');
+    if (!v.fullName)   return showErr('Full name is required.');
+    if (!v.department) return showErr('Please select your department.');
+    if (!v.password || v.password.length < 6) return showErr('Password must be at least 6 characters.');
+    if (v.password !== v.confirm) return showErr('Passwords do not match.');
+
+    const result = ZUBAIR_DB.registerResident(v);
+    if (!result.ok) return showErr(result.error);
+
+    okBox.style.display = 'block';
+    setTimeout(() => {
+      ZUBAIR_DB.setSession(result.user);
+      window.location.href = 'resident.html';
+    }, 1500);
+
+    function showErr(msg) { errBox.textContent = msg; errBox.style.display = 'block'; }
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+</script>
+</body>
+</html>

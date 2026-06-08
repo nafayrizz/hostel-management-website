@@ -1,0 +1,403 @@
+<!--
+================================================================
+PROJECT:  AICT Course Semester Project
+FILE:     index.html
+AUTHOR:   Abdul Nafay
+REG NO:   2023mc52
+DEPT:     Mechatronics Engineering
+DATE:     June 2026
+================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zubair Hall – UET Lahore | Hostel Management Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <div class="brand-icon">Z</div>
+      <span>Zubair Hall</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="login.html" class="btn-nav-login">Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Currently Accepting Residents — 2025–26
+      </div>
+      <h1>Welcome to<br><span>Zubair Hall</span></h1>
+      <p class="hero-desc">
+        UET Lahore's trusted hostel facility offering clean, affordable, and well-managed accommodation for university students. Centrally located on campus with 24/7 facilities.
+      </p>
+      <div class="hero-actions">
+        <a href="login.html" class="btn btn-primary">Resident Login</a>
+        <a href="#about" class="btn btn-outline-white">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-num">120+</span>
+        <span class="stat-label">Resident Capacity</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Floors</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Mess Meals/Day</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Security</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section" id="about" style="background: var(--white);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;">
+      <div>
+        <span class="section-label">About the Hostel</span>
+        <h2 class="section-title">Zubair Hall,<br>UET Lahore</h2>
+        <div class="section-divider"></div>
+        <p style="color:#444; line-height:1.8; margin-bottom:16px;">
+          Zubair Hall is one of the oldest and most respected student hostels at the University of Engineering and Technology (UET), Lahore. Located within the main campus on Grand Trunk Road, the hostel provides a safe and comfortable living environment for students pursuing engineering and technology degrees.
+        </p>
+        <p style="color:#444; line-height:1.8; margin-bottom:24px;">
+          The hostel features well-maintained rooms, a fully operational mess serving two balanced meals daily, high-speed Wi-Fi, and round-the-clock administrative support. Our goal is to let students focus on academics without worrying about their daily needs.
+        </p>
+        <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+          <div class="avail-badge">
+            <span class="av-dot"></span>
+            3 Rooms Currently Available
+          </div>
+          <a href="#contact" class="btn btn-outline" style="font-size:0.85rem; padding:8px 18px;">Contact Warden</a>
+        </div>
+      </div>
+
+      <div>
+        <!-- Notice Board -->
+        <div class="notice-board">
+          <div class="notice-header">
+            <span style="font-size:1.1rem;">📢</span>
+            <h3>Notice Board</h3>
+          </div>
+          <div class="notice-list">
+            <div class="notice-item">
+              <span class="notice-date">Jun 6</span>
+              <span class="notice-text">Mess will be closed on Friday evening for maintenance. Dinner will not be served.</span>
+            </div>
+            <div class="notice-item">
+              <span class="notice-date">Jun 4</span>
+              <span class="notice-text">Monthly fee due date is 10th June 2026. Late payments will incur a fine of PKR 200/day.</span>
+            </div>
+            <div class="notice-item">
+              <span class="notice-date">Jun 2</span>
+              <span class="notice-text">Electricity supply will be interrupted from 10:00 AM to 1:00 PM on Sunday for grid maintenance.</span>
+            </div>
+            <div class="notice-item">
+              <span class="notice-date">May 28</span>
+              <span class="notice-text">End-of-semester hostel clearance forms available at the warden's office. Last date: June 20.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AMENITIES ========== -->
+<section class="section" style="background: var(--off-white);">
+  <div class="section-inner">
+    <span class="section-label">Facilities &amp; Amenities</span>
+    <h2 class="section-title">Everything You Need</h2>
+    <div class="section-divider"></div>
+
+    <div class="amenity-grid">
+      <div class="amenity-item">
+        <span class="amenity-icon">🛏️</span>
+        <div>
+          <h4>Furnished Rooms</h4>
+          <p>Single and double occupancy with bed, desk, wardrobe, and ceiling fan.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">🍽️</span>
+        <div>
+          <h4>Mess / Cafeteria</h4>
+          <p>Breakfast and dinner served daily. Hygienic and budget-friendly meals.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">📶</span>
+        <div>
+          <h4>Wi-Fi Internet</h4>
+          <p>Campus-wide broadband available in all rooms and common areas.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">🔒</span>
+        <div>
+          <h4>24/7 Security</h4>
+          <p>Round-the-clock security guards and CCTV coverage across the premises.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">🚿</span>
+        <div>
+          <h4>Clean Washrooms</h4>
+          <p>Shared bathrooms cleaned twice daily with hot water in winter.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">💡</span>
+        <div>
+          <h4>Backup Generator</h4>
+          <p>Uninterrupted power supply with backup generator during load shedding.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">📚</span>
+        <div>
+          <h4>Reading Room</h4>
+          <p>Dedicated quiet study area available 24 hours, 7 days a week.</p>
+        </div>
+      </div>
+      <div class="amenity-item">
+        <span class="amenity-icon">🧺</span>
+        <div>
+          <h4>Laundry Area</h4>
+          <p>Designated laundry space with washing machines on ground floor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section" id="contact" style="background: var(--white);">
+  <div class="section-inner">
+    <span class="section-label">Get in Touch</span>
+    <h2 class="section-title">Contact Information</h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="tel:+924299029201">
+        <div class="c-icon">📞</div>
+        <div>
+          <span class="c-label">Phone</span>
+          <span class="c-value">042-9902-9201</span>
+        </div>
+      </a>
+      <a class="contact-card" href="https://wa.me/923001234567" target="_blank">
+        <div class="c-icon">💬</div>
+        <div>
+          <span class="c-label">WhatsApp</span>
+          <span class="c-value">+92 300 1234567</span>
+        </div>
+      </a>
+      <a class="contact-card" href="mailto:zubairhall@uet.edu.pk">
+        <div class="c-icon">✉️</div>
+        <div>
+          <span class="c-label">Email</span>
+          <span class="c-value">zubairhall@uet.edu.pk</span>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default;">
+        <div class="c-icon">📍</div>
+        <div>
+          <span class="c-label">Address</span>
+          <span class="c-value">Zubair Hall, UET Lahore, Grand Trunk Road, Lahore – 54890</span>
+        </div>
+      </div>
+      <div class="contact-card" style="cursor:default;">
+        <div class="c-icon">🕐</div>
+        <div>
+          <span class="c-label">Office Hours</span>
+          <span class="c-value">Mon–Fri: 9 AM – 5 PM<br>Sat: 9 AM – 1 PM</span>
+        </div>
+      </div>
+      <div class="contact-card" style="cursor:default;">
+        <div class="c-icon">👤</div>
+        <div>
+          <span class="c-label">Warden</span>
+          <span class="c-value">Mr. Tariq Mahmood<br>Room No. G-02 (Ground Floor)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MAP ========== -->
+<section class="section" id="location" style="background: var(--off-white);">
+  <div class="section-inner">
+    <span class="section-label">Find Us</span>
+    <h2 class="section-title">Our Location</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--text-muted); margin-bottom:28px; font-size:0.95rem;">
+      Zubair Hall is located within the UET Lahore main campus on Grand Trunk Road, easily accessible from the main gate.
+    </p>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.0386044978936!2d74.32199331511862!3d31.480100681378686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904c48f3ae619%3A0x3ade4e50524ad88f!2sUniversity%20of%20Engineering%20%26%20Technology%20(UET)%20Lahore!5e0!3m2!1sen!2spk!4v1623000000000!5m2!1sen!2spk"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <div style="margin-top:16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+      <p style="font-size:0.88rem; color:var(--text-muted);">
+        📍 Zubair Hall, University of Engineering &amp; Technology, Grand Trunk Road, Lahore – 54890
+      </p>
+      <a href="https://goo.gl/maps/UETLahore" target="_blank" class="btn btn-outline" style="font-size:0.82rem; padding:8px 16px; white-space:nowrap;">
+        Open in Google Maps ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEEDBACK ========== -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:48px; align-items:start;">
+      <div>
+        <span class="section-label">Visitor Feedback</span>
+        <h2 class="section-title">Leave a Comment</h2>
+        <div class="section-divider"></div>
+        <p style="color:var(--text-muted); margin-bottom:28px; line-height:1.7;">
+          We value your feedback and suggestions. Whether you're a current resident, former student, or prospective applicant — feel free to share your thoughts below.
+        </p>
+
+        <div class="feedback-form">
+          <div class="form-group">
+            <label for="fb-name">Your Name</label>
+            <input type="text" id="fb-name" placeholder="e.g. Ahmad Ali" />
+          </div>
+          <div class="form-group">
+            <label for="fb-email">Email (optional)</label>
+            <input type="email" id="fb-email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label for="fb-comment">Comment</label>
+            <textarea id="fb-comment" placeholder="Share your experience or suggestions..."></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%;" onclick="submitFeedback()">Submit Comment</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+          <h3 style="color:var(--navy); font-size:1.1rem;">Recent Comments</h3>
+          <span class="badge badge-navy">5 comments</span>
+        </div>
+
+        <div class="comments-list" id="comments-list">
+          <div class="comment-item">
+            <div><span class="comment-author">Bilal Hassan</span><span class="comment-date">2 Jun 2026</span></div>
+            <p class="comment-text">Great hostel, very clean and the staff is very cooperative. Mess food has improved a lot this year!</p>
+          </div>
+          <div class="comment-item">
+            <div><span class="comment-author">Umar Farooq</span><span class="comment-date">28 May 2026</span></div>
+            <p class="comment-text">Wi-Fi could be more stable, but overall the facilities are good. Reading room is a lifesaver during exams.</p>
+          </div>
+          <div class="comment-item">
+            <div><span class="comment-author">Zain Ahmed</span><span class="comment-date">20 May 2026</span></div>
+            <p class="comment-text">Best hostel on campus in terms of location. Very close to the engineering departments. Highly recommended.</p>
+          </div>
+          <div class="comment-item">
+            <div><span class="comment-author">Hamza Raza</span><span class="comment-date">15 May 2026</span></div>
+            <p class="comment-text">Warden Mr. Tariq is very helpful. Resolved my room issue within a day. Very satisfied with the management.</p>
+          </div>
+          <div class="comment-item">
+            <div><span class="comment-author">Saad Malik</span><span class="comment-date">10 May 2026</span></div>
+            <p class="comment-text">Rooms are well furnished. Monthly rent is reasonable for the amenities provided. Keep up the good work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="brand-name">Zubair Hall – UET Lahore</p>
+      <p>A managed student hostel facility at the University of Engineering and Technology, Lahore. Providing safe and affordable accommodation for UET students since decades.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Resident Login</a></li>
+        <li><a href="rules.html">Hostel Rules</a></li>
+        <li><a href="#contact">Contact Warden</a></li>
+        <li><a href="#location">Location Map</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+924299029201">042-9902-9201</a></li>
+        <li><a href="mailto:zubairhall@uet.edu.pk">zubairhall@uet.edu.pk</a></li>
+        <li><a href="#">Grand Trunk Road, Lahore</a></li>
+        <li><a href="https://uet.edu.pk" target="_blank">UET Lahore Website</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Zubair Hall, UET Lahore. All rights reserved.</span>
+    <span>Project by Abdul Nafay – 2023-MC-52 | ICT Course</span>
+  </div>
+</footer>
+
+<script>
+  function submitFeedback() {
+    const name = document.getElementById('fb-name').value.trim();
+    const comment = document.getElementById('fb-comment').value.trim();
+    if (!name || !comment) {
+      alert('Please enter your name and comment before submitting.');
+      return;
+    }
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
+    const list = document.getElementById('comments-list');
+    const div = document.createElement('div');
+    div.className = 'comment-item';
+    div.innerHTML = `
+      <div><span class="comment-author">${name}</span><span class="comment-date">${dateStr}</span></div>
+      <p class="comment-text">${comment}</p>
+    `;
+    list.insertBefore(div, list.firstChild);
+    document.getElementById('fb-name').value = '';
+    document.getElementById('fb-email').value = '';
+    document.getElementById('fb-comment').value = '';
+    div.style.animation = 'none';
+    div.style.borderColor = 'var(--gold)';
+    setTimeout(() => { div.style.borderColor = ''; }, 2000);
+  }
+</script>
+
+</body>
+</html>

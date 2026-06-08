@@ -1,0 +1,222 @@
+<!--
+  AICT Semester Project
+  Abdul Nafay | 2023mc52
+  Mechatronics Department
+-->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hostel Rules – Zubair Hall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <div class="brand-icon">Z</div>
+      <span>Zubair Hall</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rules.html" class="active">Rules</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="login.html" class="btn-nav-login">Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<div style="background:var(--navy); padding:60px 2rem; text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);"></div>
+  <div style="position:relative; z-index:1; max-width:700px; margin:0 auto;">
+    <span style="font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:12px;">Zubair Hall</span>
+    <h1 style="color:var(--white); margin-bottom:14px;">Hostel Rules &amp; Regulations</h1>
+    <p style="color:rgba(248,247,243,0.65); font-size:1rem; line-height:1.75;">
+      All residents are expected to read, understand, and follow these rules. Adherence to these regulations ensures a peaceful and productive environment for everyone.
+    </p>
+    <div style="margin-top:20px; display:inline-block; background:rgba(201,168,76,0.14); border:1px solid rgba(201,168,76,0.30); border-radius:20px; padding:6px 18px; font-size:0.82rem; color:var(--gold-light);">
+      Last Updated: June 2026
+    </div>
+  </div>
+</div>
+
+<!-- ========== RULES CONTENT ========== -->
+<section class="section" style="background:var(--off-white);">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:28px;">
+
+      <!-- General Rules -->
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+          <span style="font-size:1.4rem;">📋</span>
+          <h3 style="color:var(--navy);">General Conduct</h3>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">01.</span>
+            All residents must carry their UET ID card and hostel ID at all times on campus.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">02.</span>
+            Residents must maintain respectful behavior towards warden, staff, and fellow residents at all times.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">03.</span>
+            Loud music, gatherings, or any activity disturbing others is strictly prohibited after 10:00 PM.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">04.</span>
+            Smoking, alcohol, and any form of drug use is completely banned on the premises.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">05.</span>
+            Any damage to hostel property will be charged to the responsible resident.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Timing Rules -->
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+          <span style="font-size:1.4rem;">🕐</span>
+          <h3 style="color:var(--navy);">Timings &amp; Gate Policy</h3>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">01.</span>
+            Main gate closes at 11:00 PM. Residents must return before closing time. Late entry requires prior permission from the warden.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">02.</span>
+            Mess breakfast is served from 7:00 AM – 9:00 AM. Dinner is from 7:00 PM – 9:00 PM. No meals will be served outside these hours.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">03.</span>
+            Overnight stays outside the hostel require written notice to the warden's office at least 12 hours in advance.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">04.</span>
+            External visitors are only permitted in the common area. No visitors are allowed inside rooms or on the upper floors.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">05.</span>
+            Visitor hours are 4:00 PM – 8:00 PM only on weekdays. Weekend visitors must have warden's approval.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Fee Rules -->
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+          <span style="font-size:1.4rem;">💳</span>
+          <h3 style="color:var(--navy);">Fee &amp; Payment Policy</h3>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">01.</span>
+            Monthly room rent of PKR 8,000 must be paid by the 10th of every month at the warden's office.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">02.</span>
+            A late payment fine of PKR 200 per day will be charged after the 10th.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">03.</span>
+            Mess charges are calculated daily: PKR 75 per meal (Breakfast or Dinner). Both meals = PKR 150/day.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">04.</span>
+            Mess fee must be cleared by the last day of every month. Unpaid mess dues will block clearance approval.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">05.</span>
+            A security deposit of PKR 5,000 is required upon check-in. It is refundable at checkout (minus any deductions).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Cleanliness Rules -->
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+          <span style="font-size:1.4rem;">🧹</span>
+          <h3 style="color:var(--navy);">Cleanliness &amp; Maintenance</h3>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">01.</span>
+            Each resident is responsible for keeping their own room clean. Rooms will be inspected weekly by the warden.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">02.</span>
+            Littering in corridors, stairways, or common areas is strictly prohibited and will result in a fine.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">03.</span>
+            Cooking inside rooms is not allowed. Use of personal heating appliances (electric rods, coils) is banned.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">04.</span>
+            Plumbing issues, broken fixtures, or electrical faults must be reported to the warden immediately.
+          </li>
+          <li style="display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:#444; line-height:1.6; padding:10px; border-radius:8px; background:var(--off-white); transition:background 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.07)'" onmouseout="this.style.background='var(--off-white)'">
+            <span style="color:var(--gold); font-weight:700; flex-shrink:0; margin-top:1px;">05.</span>
+            Washrooms must be kept clean after each use. Common area cleaning is a shared responsibility.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Acknowledgement Notice -->
+    <div style="margin-top:32px; background:var(--navy); border-radius:14px; padding:32px; text-align:center;">
+      <p style="color:rgba(248,247,243,0.70); font-size:0.92rem; line-height:1.75; max-width:640px; margin:0 auto;">
+        By residing in Zubair Hall, all residents are considered to have read and agreed to these rules. 
+        Violation of any rule may result in a fine, suspension, or removal from the hostel at the warden's discretion.
+        For any queries regarding these rules, contact the warden's office.
+      </p>
+      <div style="margin-top:20px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="index.html#contact" class="btn btn-primary">Contact Warden</a>
+        <a href="index.html" class="btn btn-outline-white">Back to Home</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="brand-name">Zubair Hall – UET Lahore</p>
+      <p>A managed student hostel facility at the University of Engineering and Technology, Lahore.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Resident Login</a></li>
+        <li><a href="rules.html">Hostel Rules</a></li>
+        <li><a href="index.html#contact">Contact Warden</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+924299029201">042-9902-9201</a></li>
+        <li><a href="mailto:zubairhall@uet.edu.pk">zubairhall@uet.edu.pk</a></li>
+        <li><a href="https://uet.edu.pk" target="_blank">UET Lahore Website</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Zubair Hall, UET Lahore. All rights reserved.</span>
+    <span>Project by Abdul Nafay – 2023-MC-52 | ICT Course</span>
+  </div>
+</footer>
+
+</body>
+</html>
